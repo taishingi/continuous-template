@@ -50,8 +50,10 @@ packer build rust.json.pkr.hcl
 ```
 
 
+> post-commit hooks
+
 ```bash
-#!bin/bash
+#!/bin/bash
 
 packer validate continuous/rust/rust.json
 packer hcl2_upgrade -with-annotations continuous/rust/rust.json
