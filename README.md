@@ -4,8 +4,17 @@
 
 ## Requirements
 
-[**docker**](https://docs.docker.com/engine/install/) and [**packer**](https://developer.hashicorp.com/packer/docs) must be installed on your system
+[**Docker**](https://docs.docker.com/engine/install/) and [**Packer**](https://developer.hashicorp.com/packer/docs) must be installed on your system
 
+## Plugins required
+
+```bash
+packer plugins install github.com/hashicorp/docker
+```
+
+```bash
+packer plugins install github.com/hashicorp/git
+```
 ## Usage
 
 ```bash
@@ -40,12 +49,3 @@ packer hcl2_upgrade -with-annotations  rust.json
 packer build rust.json.pkr.hcl
 ```
 
-## Plugins required
-
-```bash
-packer plugins install github.com/hashicorp/docker
-```
-
-```bash
-packer plugins install github.com/hashicorp/git
-```
