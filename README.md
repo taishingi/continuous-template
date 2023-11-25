@@ -4,7 +4,7 @@
 
 ## Requirements
 
-[**docker**](https://docs.docker.com/engine/install/) and [**packer**](https://developer.hashicorp.com/packer/docs)** must be installed on your system
+[**docker**](https://docs.docker.com/engine/install/) and [**packer**](https://developer.hashicorp.com/packer/docs) must be installed on your system
 
 ## Usage
 
