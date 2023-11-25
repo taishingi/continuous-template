@@ -40,3 +40,12 @@ packer hcl2_upgrade -with-annotations  rust.json
 packer build rust.json.pkr.hcl
 ```
 
+## Plugins required
+
+```bash
+packer plugins install github.com/hashicorp/docker
+```
+
+```bash
+packer plugins install github.com/hashicorp/git
+```
