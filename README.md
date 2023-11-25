@@ -56,6 +56,8 @@ packer build rust.json.pkr.hcl
 #!/bin/bash
 
 unset GIT_DIR
+git push origin --all
+git push origin --tags
 cd continuous/rust
 packer validate rust.json
 packer hcl2_upgrade -with-annotations rust.json
