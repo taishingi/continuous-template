@@ -1,7 +1,9 @@
 {
   "variables": {
-    "image": "rustlang/rust:nightly"
-  },
+    "image": "rustlang/rust:nightly",
+    "type": "docker",
+    "changes": "USER www-data  WORKDIR /var/www ENV HOSTNAME continuous.ji EXPOSE 80 443 LABEL version=1.0 ONBUILD RUN date CMD [\"nginx\", \"-g\", \"daemon off;\"] ENTRYPOINT /var/www/start.sh"
+  }, 
   "builders": [
     {
       "type": "docker",
