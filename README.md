@@ -49,3 +49,11 @@ packer hcl2_upgrade -with-annotations  rust.json
 packer build rust.json.pkr.hcl
 ```
 
+
+```bash
+#!bin/bash
+
+packer validate continuous/rust/rust.json
+packer hcl2_upgrade -with-annotations continuous/rust/rust.json
+packer build continuous/rust/rust.json.pkr.hcl
+```
