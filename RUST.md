@@ -25,17 +25,12 @@ vim nightly.sh
 ```
 
 ```bash
-packer validate rust.json 
+packer validate . 
 ```
 
 ```bash
-packer hcl2_upgrade -with-annotations  rust.json 
+packer build .
 ```
-
-```bash
-packer build rust.json.pkr.hcl
-```
-
 > .git/hooks/post-commit
 
 ```bash
@@ -45,7 +40,6 @@ unset GIT_DIR
 git push origin --all
 git push origin --tags
 cd continuous/rust
-packer validate rust.json
-packer hcl2_upgrade -with-annotations rust.json
-packer build rust.json.pkr.hcl
+packer validate .
+packer build .
 ```
