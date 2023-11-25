@@ -1,3 +1,3 @@
 echo nightly
 
-rustupo default nightly
+rustup default nightly
