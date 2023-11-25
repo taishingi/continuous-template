@@ -1,0 +1,22 @@
+{
+  "variables": {
+    "image": "rustlang/rust:nightly"
+  },
+  "builders": [
+    {
+      "type": "docker",
+      "image": "{{user `image`}}",
+      "commit": true
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "scripts": [
+        "stable.sh",
+        "beta.sh",
+        "nightly.sh"
+      ]
+    }
+  ]
+}
