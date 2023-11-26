@@ -1,0 +1,20 @@
+#!/bin/bash
+PROVIDER=github.com
+PROVIDER_USERNAME=taishingi
+REPOSITORY=
+REPOSITORY="https://${PROVIDER}/${PROVIDER_USERNAME}/${REPOSITORY}"
+REQUIRED=('git')
+COMMANDS=('cargo run')
+TIME=10
+INSTALLER=yay
+INSTALL_OPTIONS=-S
+for x in ${REQUIRED}
+do
+	 ${INSTALLER} ${INSTALL_OPTIONS} ${x}
+done
+git clone ${REPOSITORY} continuous && cd continuous || exit 1
+git log -1  && sleep ${TIME} || exit 1
+for x in ${COMMANDS}
+do
+	 ${x}
+done

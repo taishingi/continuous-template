@@ -47,7 +47,7 @@ build {
   }
 
   provisioner "shell" {
-    scripts = ["stable.sh"]
+    scripts = ["stable"]
   }
 }
 
@@ -57,7 +57,7 @@ build {
   }
 
   provisioner "shell" {
-    scripts = ["beta.sh"]
+    scripts = ["beta"]
   }
 }
 
@@ -67,7 +67,7 @@ build {
   }
 
   provisioner "shell" {
-    scripts = ["nightly.sh"]
+    scripts = ["nightly"]
   }
 }
 

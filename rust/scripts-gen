@@ -1,0 +1,29 @@
+#!/bin/bash
+
+
+for i in "stable" "beta" "nightly"
+do
+    echo "generating ${i} script..."
+    echo "#!/bin/bash" > "${i}"
+    echo "PROVIDER=github.com" >> "${i}"
+    echo "PROVIDER_USERNAME=taishingi" >> "${i}"
+    echo "REPOSITORY=" >> "${i}"
+    echo "REPOSITORY=\"https://\${PROVIDER}/\${PROVIDER_USERNAME}/\${REPOSITORY}\"" >> "${i}"
+    echo "REQUIRED=('git')" >> "${i}"
+    echo "COMMANDS=('cargo run')" >> "${i}"
+    echo "TIME=10" >> "${i}"
+    echo "INSTALLER=yay" >> "${i}"
+    echo "INSTALL_OPTIONS=-S" >> "${i}"
+    echo "for x in \${REQUIRED}"  >> "${i}"
+    echo "do"  >> "${i}"
+    echo -e "\t \${INSTALLER} \${INSTALL_OPTIONS} \${x}" >> "${i}"
+    echo "done" >> "${i}"
+    echo "git clone \${REPOSITORY} continuous && cd continuous || exit 1" >> "${i}"
+    echo "git log -1  && sleep \${TIME} || exit 1" >> "${i}"
+    echo "for x in \${COMMANDS}"  >> "${i}"
+    echo "do"  >> "${i}"
+    echo -e "\t \${x}" >> "${i}"
+    echo "done" >> "${i}"
+    chmod +x "${i}"
+done
+
