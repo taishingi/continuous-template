@@ -7,21 +7,21 @@ git clone https://github.com/taishingi/continuous-template continuous
 ```
 
 ```bash
-cd continuous/rust 
+cd continuous/rust && ./scripts-gen
 ```
 
 > Edit providers scripts
 
 ```bash
-vim stable.sh
+vim stable
 ```
 
 ```bash
-vim beta.sh
+vim beta
 ```
 
 ```bash
-vim nightly.sh 
+vim nightly 
 ```
 
 ```bash

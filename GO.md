@@ -7,21 +7,21 @@ git clone https://github.com/taishingi/continuous-template continuous
 ```
 
 ```bash
-cd continuous/go
+cd continuous/go && ./scripts-gen
 ```
 
 > Edit providers scripts
 
 ```bash
-vim stable.sh
+vim stable
 ```
 
 ```bash
-vim beta.sh
+vim beta
 ```
 
 ```bash
-vim nightly.sh 
+vim nightly
 ```
 
 ```bash
