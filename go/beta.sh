@@ -1,6 +1,5 @@
 #!/bin/bash
 
 echo beta
-
-rustup default beta
+go run hello.go
 

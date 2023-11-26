@@ -1,6 +1,5 @@
 #!/bin/bash
 
 echo stable
-
-rustup default stable
+go run hello.go
 
