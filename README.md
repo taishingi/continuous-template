@@ -16,6 +16,6 @@ packer plugins install github.com/hashicorp/docker
 packer plugins install github.com/hashicorp/git
 ```
 
-* [**Rust**](RUST.md)
+* [**Rust**](rust/README.md)
 * [**Go**](go/README.md)
 * [**D**](d/README.md)
