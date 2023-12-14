@@ -1,4 +1,5 @@
 #!/bin/bash
+
 function gen()
 {
     for i in "stable" "beta" "nightly"; do
@@ -12,10 +13,7 @@ function gen()
             echo "TIME=3"
             echo -e "\ngit clone \"\${URI}\" continuous && cd continuous || exit 1"
             echo "git log -1  && sleep \"\${TIME}\" || exit 1"
-            echo "fd . -e toml | cargo build"
-            echo "if [ -d \"tests\" ];then"
-            echo -e "\tcd tests && cargo run || exit 1"
-            echo "fi"
+            echo "fd '^dub.json$' | dub test"
             echo "exit 0"
         } > ${i}
         chmod +x ${i}

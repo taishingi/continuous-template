@@ -3,6 +3,10 @@
 > For go user
 
 ```bash
+packer plugins install github.com/hashicorp/googlecompute
+```
+
+```bash
 git clone https://github.com/taishingi/continuous-template continuous
 ```
 

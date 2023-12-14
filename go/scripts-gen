@@ -1,44 +1,26 @@
 #!/bin/bash
 
-for i in "stable" "beta" "nightly"; do
-    echo "generating ${i} script..."
-    {
-        echo -e "#!/bin/bash\n"
-        echo "PROVIDER=github.com"
-        echo "PROVIDER_USERNAME="
-        echo "REPOSITORY="
-        echo "URI=\"https://\${PROVIDER}/\${PROVIDER_USERNAME}/\${REPOSITORY}\""
-        echo "REQUIRED=('git')"
-        echo "COMMANDS=('go:run')"
-        echo "CHANNEL=${i}"
-        echo "TIME=10"
-        echo "INSTALLER=apt-get"
-        echo -e "INSTALL_OPTIONS=install\n"
-        echo "for x in \"\${REQUIRED[@]}\""
-        echo "do"
-        echo -e "\t\${INSTALLER} \${INSTALL_OPTIONS} \"\${x}\""
-        echo -e "done\n"
-        echo "STR=\$(realpath . )"
-        echo "SUB=\"go\""
-        echo -e "\nif [[ \"\$STR\" == *\"\$SUB\"* ]]"
-        echo "then"
-        echo -e "\techo \"\${CHANNEL}\""
-        echo -e "fi\n"
-        echo "git clone \"\${URI}\" continuous && cd continuous || exit 1"
-        echo "git log -1  && sleep \"\${TIME}\" || exit 1"
-        echo -e "\nfor x in \"\${COMMANDS[@]}\""
-        echo "do"
-        echo -e "\tprogram=\$(echo \"\${x}\" | cut -f1 -d :)"
-        echo -e "\targ=\$(echo \"\${x}\" | cut -f2 -d :)"
-        echo -e "\tfilenames=\$(ls ./*.go)"
-        echo -e "\n\tfor f in \${filenames}"
-        echo -e "\tdo"
-        echo -e "\t\t\${program} \"\${arg}\" \"\${f}\""
-        echo -e "\tdone"
-        echo -e "done"
-        echo "cd .."
-        echo "rm -rf continuous"
+function gen() {
+    for i in "stable" "beta" "nightly"; do
+        echo "generating ${i} script..."
+        {
+            echo -e "#!/bin/bash\n"
+            echo "PROVIDER=$1"
+            echo "PROVIDER_USERNAME=$2"
+            echo "REPOSITORY=$3"
+            echo "URI=\"https://\${PROVIDER}/\${PROVIDER_USERNAME}/\${REPOSITORY}\""
+            echo "TIME=3"
+            echo -e "\ngit clone \"\${URI}\" continuous && cd continuous || exit 1"
+            echo "git log -1  && sleep \"\${TIME}\" || exit 1"
+            echo "fd -e go -x go run"
+            echo "exit 0"
+        } > ${i}
+        chmod +x ${i}
+    done
+}
 
-    } > ${i}
-    chmod +x ${i}
-done
+if [ -z $3 ];then
+    gen "github.com" "$1" "$2"
+else
+    gen "$1" "$2" "$3"
+fi

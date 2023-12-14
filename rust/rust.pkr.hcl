@@ -9,17 +9,17 @@ packer {
 
 variable "image_stable" {
   type    = string
-  default = "instrumentisto/rust:buster"
+  default = "taishingi/rlang:stable"
 }
 
 variable "image_beta" {
   type    = string
-  default = "instrumentisto/rust:beta"
+  default = "taishingi/rlang:beta"
 }
 
 variable "image_nightly" {
   type    = string
-  default = "instrumentisto/rust:nightly"
+  default = "taishingi/rlang:nightly"
 }
 
 source "docker" "stable" {
