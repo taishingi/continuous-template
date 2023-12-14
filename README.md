@@ -17,5 +17,5 @@ packer plugins install github.com/hashicorp/git
 ```
 
 * [**Rust**](RUST.md)
-* [**Go**](GO.md)
+* [**Go**](go/README.md)
 * [**D**](d/README.md)
