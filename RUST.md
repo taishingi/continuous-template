@@ -7,7 +7,7 @@ git clone https://github.com/taishingi/continuous-template continuous
 ```
 
 ```bash
-cd continuous/rust && ./scripts-gen
+cd continuous/rust && ./scripts-gen "github.com|gitlab.com" "username" "repository"
 ```
 
 > Edit providers scripts
@@ -31,6 +31,7 @@ packer validate .
 ```bash
 packer build .
 ```
+
 > .git/hooks/post-commit
 
 ```bash

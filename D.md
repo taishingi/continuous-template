@@ -1,17 +1,13 @@
-# Go template
+# D template
 
-> For go user
-
-```bash
-packer plugins install github.com/hashicorp/googlecompute
-```
+> For d user
 
 ```bash
 git clone https://github.com/taishingi/continuous-template continuous
 ```
 
 ```bash
-cd continuous/go && ./scripts-gen "github.com|gitlab.com" "username" "repository"
+cd continuous/d && ./scripts-gen "github.com|gitlab.com" "username" "repository"
 ```
 
 > Edit providers scripts
@@ -44,7 +40,7 @@ packer build .
 unset GIT_DIR
 git push origin --all
 git push origin --tags
-cd continuous/go
+cd continuous/d
 packer validate .
 packer build .
 ```
