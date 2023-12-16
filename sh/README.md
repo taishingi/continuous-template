@@ -1,4 +1,4 @@
-# Rust template
+# Bash template
 
 > For bash user
 
