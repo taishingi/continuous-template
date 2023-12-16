@@ -1,0 +1,26 @@
+#!/bin/bash
+
+function gen() {
+    for i in "stable" "beta" "nightly"; do
+        echo "generating ${i} script..."
+        {
+            echo -e "#!/usr/bin/bash\n"
+            echo "PROVIDER=$1"
+            echo "PROVIDER_USERNAME=$2"
+            echo "REPOSITORY=$3"
+            echo "URI=\"https://\${PROVIDER}/\${PROVIDER_USERNAME}/\${REPOSITORY}\""
+            echo "TIME=3"
+            echo -e "\ngit clone \"\${URI}\" continuous && cd continuous || exit 1"
+            echo "git log -1  && sleep \"\${TIME}\" || exit 1"
+            echo "fd -e sh -x bash"
+            echo "exit 0"
+        } > ${i}
+        chmod +x ${i}
+    done
+}
+
+if [ -z $3 ];then
+    gen "github.com" "$1" "$2"
+else
+    gen "$1" "$2" "$3"
+fi

@@ -17,3 +17,4 @@ packer plugins install github.com/hashicorp/docker
 * [**Rust**](rust)
 * [**Go**](go)
 * [**D**](d)
+* [**Bash**](sh)
