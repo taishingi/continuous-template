@@ -7,29 +7,7 @@ git clone https://github.com/taishingi/continuous-template continuous
 ```
 
 ```bash
-cd continuous/rust && ./scripts-gen "github.com|gitlab.com" "username" "repository"
-```
-
-> Edit providers scripts
-
-```bash
-vim stable
-```
-
-```bash
-vim beta
-```
-
-```bash
-vim nightly 
-```
-
-```bash
-packer validate . 
-```
-
-```bash
-packer build .
+cd continuous/rust && ./scripts-gen "domain" "username" "repository" "branch" "cpu"
 ```
 
 > .git/hooks/post-commit

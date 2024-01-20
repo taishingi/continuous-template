@@ -1,6 +1,6 @@
 #!/bin/bash
-function gen()
-{
+
+function gen() {
     for i in "stable" "beta" "nightly"; do
         echo "generating ${i} script..."
         {
@@ -10,12 +10,10 @@ function gen()
             echo "REPOSITORY=$3"
             echo "URI=\"https://\${DOMAIN}/\${USERNAME}/\${REPOSITORY}\""
             echo "TIME=5"
-            echo "export USER=$USER"
             echo -e "\ngit clone \"\${URI}\" continuous && cd continuous || exit 1"
             echo -e "git checkout $4 || exit 1"
             echo "git log -1 --stat && sleep \"\${TIME}\" || exit 1"
-            echo "fd . -e toml | cargo build -j $5 || exit 1"
-            echo "fd . -e toml | cargo test -j $5 -- --test-threads=$5 --verbose || exit 1"
+            echo "go test -cpu $5 -v || exit 1"
             echo "exit 0"
         } > ${i}
         chmod +x ${i}

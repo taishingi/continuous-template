@@ -1,13 +1,13 @@
-# D template
+# Java template
 
-> For d user
+> For java user
 
 ```bash
 git clone https://github.com/taishingi/continuous-template continuous
 ```
 
 ```bash
-cd continuous/d && ./scripts-gen "domain" "username" "repository" "branch"
+cd continuous/go && ./scripts-gen "domain" "username" "repository" "branch" "cpu"
 ```
 
 > .git/hooks/post-commit
@@ -18,7 +18,7 @@ cd continuous/d && ./scripts-gen "domain" "username" "repository" "branch"
 unset GIT_DIR
 git push origin --all
 git push origin --tags
-cd continuous/d
+cd continuous/java
 packer validate .
 packer build .
 ```
