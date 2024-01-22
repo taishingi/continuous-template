@@ -1,15 +1,14 @@
-# D template
+# C template
 
-> For d user
+> For c++ user
 
 ```bash
 git clone https://github.com/taishingi/continuous-template continuous
 ```
 
 ```bash
-cd continuous/d && ./scripts-gen "domain" "username" "repository" "branch"
+cd continuous/c++ && ./scripts-gen "domain" "username" "repository" "branch" "cpu"
 ```
-
 > .git/hooks/post-commit
 
 ```bash
@@ -18,7 +17,7 @@ cd continuous/d && ./scripts-gen "domain" "username" "repository" "branch"
 unset GIT_DIR
 git push origin --all
 git push origin --tags
-cd continuous/d
+cd continuous/c++ 
 packer validate .
 packer build .
 ```
@@ -31,11 +30,11 @@ services:
   zuu:
     environment:
       TERM: xterm-color
-    image: taishingi/dlang:latest
+    image: taishingi/clang:latest
     volumes:
       - .:/app
     command:
-      - dub build
-      - dub test
-      - dub lint
+      - cmake .
+      - make 
+      - make install
 ```

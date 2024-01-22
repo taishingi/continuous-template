@@ -15,6 +15,7 @@ function gen()
             echo -e "git checkout $4 || exit 1"
             echo "git log -1 --stat && sleep \"\${TIME}\" || exit 1"
             echo "fd Makefile | make -j $5 || exit 1"
+            echo "fd CMakeLists.tx -x cmake && make -j $5 || exit 1"
             echo "exit 0"
         } > ${i}
         chmod +x ${i}
