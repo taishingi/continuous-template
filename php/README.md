@@ -1,13 +1,13 @@
-# C template
+# Php template
 
-> For c user
+> For php user
 
 ```bash
 git clone https://github.com/taishingi/continuous-template continuous
 ```
 
 ```bash
-cd continuous/c && ./scripts-gen "domain" "username" "repository" "branch" "cpu"
+cd continuous/php && ./scripts-gen "domain" "username" "repository" "branch"
 ```
 > .git/hooks/post-commit
 
@@ -17,7 +17,7 @@ cd continuous/c && ./scripts-gen "domain" "username" "repository" "branch" "cpu"
 unset GIT_DIR
 git push origin --all
 git push origin --tags
-cd continuous/c 
+cd continuous/php
 packer validate .
 packer build .
 ```
@@ -30,11 +30,9 @@ services:
   zuu:
     environment:
       TERM: xterm-color
-    image: taishingi/clang:latest
+    image: taishingi/plang:latest
     volumes:
       - .:/app
     command:
-      - cmake .
-      - make 
-      - make install
+      - composer install
 ```
