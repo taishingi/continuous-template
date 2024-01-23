@@ -14,10 +14,9 @@ function gen()
             echo -e "\ngit clone \"\${URI}\" continuous && cd continuous || exit 1"
             echo -e "git checkout $4 || exit 1"
             echo "git log -1 --stat && sleep \"\${TIME}\" || exit 1"
-            echo "composer require --dev phpunit/phpunit phpstan/phpstan"
             echo "fd composer.json | composer install || exit 1"
-            echo "vendor/bin/phpunit || exit 1"
-            echo "vendor/bin/phpstan || exit 1"
+            echo "fd vendor/bin/phpunit | vendor/bin/phpunit || exit 1"
+            echo "fd vendor/bin/phpstan | vendor/bin/phpstan analyse || exit 1"
             echo "exit 0"
         } > ${i}
         chmod +x ${i}
