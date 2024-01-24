@@ -1,4 +1,4 @@
-# C template
+# C++ template
 
 > For c++ user
 
@@ -27,7 +27,7 @@ packer build .
 ```yaml
 version: '3'
 services:
-  zuu:
+  c++:
     environment:
       TERM: xterm-color
     image: taishingi/clang:latest

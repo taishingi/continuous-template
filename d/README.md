@@ -28,14 +28,10 @@ packer build .
 ```yaml
 version: '3'
 services:
-  zuu:
+  d:
     environment:
       TERM: xterm-color
     image: taishingi/dlang:latest
     volumes:
       - .:/app
-    command:
-      - dub build
-      - dub test
-      - dub lint
 ```
